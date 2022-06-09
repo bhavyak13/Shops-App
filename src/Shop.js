@@ -1,17 +1,18 @@
 import React from 'react'
-const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+import CardComp from './Card';
 
 const Shop = (props) => {
-    const { name, area, category, startDate } = props.shop;
-    // const EditHandler=()=>{}
-    const DeleteHandler=()=>{
+    const { name, area, category, startDate, finishDate } = props.shop;
+    const DeleteHandler = () => {
         props.deleteShop(props.shop.id);
     }
     return (
         <div>
-            {name} {area} {category} {months[startDate[1]-1]}
-            {/* <button onClick={EditHandler}>Edit</button> */}
-            <button onClick={DeleteHandler}>Delete</button>
+            <CardComp name={name} area={area} category={category}
+                startDate={startDate}
+                finishDate={finishDate}
+            />
+            <button onClick={DeleteHandler} className={'btn btn-danger'}>X</button>
         </div>
     )
 }

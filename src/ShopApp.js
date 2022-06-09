@@ -1,30 +1,29 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ShopList from './ShopList';
-import NewShopForm from './NewShopForm';
 import { v4 as uuid } from 'uuid';
-
+import Navbar from './Navbar';
+import useStyles from './Styles/ShopAppStyles'
 
 const ShopApp = () => {
     const [shops, setShops] = useState([
         {
             id: '1',
             area: 'thane',
-            category: 'blabal',
-            name: 'Dahi',
+            category: 'dairy',
+            name: 'Dairy Shop1',
             startDate: ['1', '3', '2015'],
             finishDate: ['4', '5', '2019'],
         },
         {
             id: '2',
-            area: 'thane',
-            category: 'blabal',
-            name: 'Dahi',
+            area: 'mumbai',
+            category: 'dairy',
+            name: 'Dairy Shop2',
             startDate: ['1', '3', '2015'],
             finishDate: ['4', '5', '2019'],
         },
     ]);
     const [open, setOpen] = useState(false);
-
     const addShop = (shop) => {
         const newShop = { ...shop, id: uuid() };
         setShops([...shops, newShop]);
@@ -33,11 +32,23 @@ const ShopApp = () => {
         const newShop = shops.filter(shop => shop.id !== id);
         setShops(newShop);
     }
-    // console.log(shops);
+    const filters = ['None', 'Area', 'Category', 'Open', 'Closed'];
+    const [filter, setFilter] = useState('');
+    let filteredShops = shops;
+    useEffect(() => {
+        // filteredShops=shops.filter(shop=>shop.)
+    }, [filter, shops]);
+    const classes = useStyles();
     return (
         <>
-            <ShopList shops={shops} deleteShop={deleteShop} />
-            <NewShopForm open={open} setOpen={setOpen} addShop={addShop} />
+            <Navbar open={open} setOpen={setOpen} addShop={addShop} filter={filter} setFilter={setFilter} filters={filters} />
+            <div className={classes.root}>
+                <div className={classes.container}>
+                    <div className={classes.shops}>
+                        <ShopList shops={filteredShops} deleteShop={deleteShop} />
+                    </div>
+                </div>
+            </div>
         </>
     )
 }

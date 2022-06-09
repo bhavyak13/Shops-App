@@ -5,9 +5,9 @@ function DateChooser(props) {
     const { date, setDate } = props;
     // const { date, setDate, validator } = props;
     return (
-        <div>
+        <span style={{marginLeft:'1rem'}}>
             <DatePicker onChange={setDate} value={date} />
-        </div>
+        </span>
     )
 }
 export default DateChooser;
