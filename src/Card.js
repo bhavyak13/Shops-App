@@ -2,8 +2,8 @@ import React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 export default function CardComp(props) {
     const { name, area, category, startDate, finishDate } = props;

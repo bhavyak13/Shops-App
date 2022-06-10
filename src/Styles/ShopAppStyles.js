@@ -1,15 +1,15 @@
 import { makeStyles } from '@mui/styles';
 import Sizes from './Sizes';
+import bg from './sun-tornado.svg'
 
 const useStyles = makeStyles({
     root: {
-        backgroundColor: "blue",
         height: "100vh",
         display: "flex",
         alignItems: "flex-start",
         justifyContent: "center",
-        overflow: "scroll",
         backgroundColor: "white",
+        backgroundImage: `url(${bg})`,
         // color:'white'
     },
     container: {
