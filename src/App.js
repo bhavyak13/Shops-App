@@ -3,8 +3,8 @@ import ShopApp from './ShopApp';
 
 function App() {
   return (
-    <div className="App">
-      <ShopApp/>
+    <div>
+      <ShopApp />
     </div>
   );
 }

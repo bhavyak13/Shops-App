@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -8,13 +8,14 @@ import DropDown from './DropDown';
 import DateChooser from './DateChooser';
 import useStyles from './Styles/NewShopFormStyles';
 import { areas, categories } from './Helpers';
+import { dispatchContext } from './ShopsContext';
 
 
 
 function NewShopForm(props) {
     //intials
     const classes = useStyles();
-    const { open, setOpen, addShop } = props;
+    const { open, setOpen } = props;
     const [name, setName] = useState('');
     const [area, setArea] = useState('');
     const [category, setCategory] = useState('');
@@ -24,6 +25,8 @@ function NewShopForm(props) {
     const [areaError, setAreaError] = useState(false);
     const [categoryError, setCategoryError] = useState(false);
     const [nameErrorMessage, setNameErrorMessage] = useState('');
+    const [dateError, setDateError] = useState(true);
+    const dispatch = useContext(dispatchContext);
 
     //hooks
     useEffect(() => {
@@ -38,22 +41,32 @@ function NewShopForm(props) {
         else {
             setNameError(false);
         }
+    }, [name]);
+
+    useEffect(() => {
         area === '' ? setAreaError(true) : setAreaError(false);
+    }, [area]);
+
+    useEffect(() => {
         category === '' ? setCategoryError(true) : setCategoryError(false);
-    }, [area, name, category])
+    }, [category])
+
+    useEffect(() => {
+        (startDate > finishDate) ? setDateError(true) : setDateError(false);
+    }, [startDate, finishDate])
 
     //handlers
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
+    const handleClickOpen = () => { setOpen(true); };
     const handleClose = () => {
         setOpen(false);
         setName('');
         setArea('');
         setCategory('');
+        setStartDate(new Date());
+        setFinishDate(new Date());
     };
     const addShopHandler = () => {
-        if (nameError || areaError || categoryError) return;
+        if (nameError || areaError || categoryError || dateError) return;
         const shop = {
             name,
             area,
@@ -61,12 +74,10 @@ function NewShopForm(props) {
             startDate: [startDate.getDate(), startDate.getMonth(), startDate.getFullYear()],
             finishDate: [finishDate.getDate(), finishDate.getMonth(), finishDate.getFullYear()],
         }
-        addShop(shop);
+        dispatch({ type: 'add', shop });
         handleClose();
     }
-    const changeHandler = (e) => {
-        setName(e.target.value);
-    }
+    const changeHandler = (e) => { setName(e.target.value); }
 
     return (
         <div>
@@ -105,6 +116,7 @@ function NewShopForm(props) {
                     <div className={classes.dropdown}>
                         <label htmlFor='close'>Closing Date : </label>
                         <DateChooser validator={true} date={finishDate} setDate={setFinishDate} id='close' />
+                        <div hidden={!dateError}>Closing Date can't be before opening date</div>
                     </div>
                 </DialogContent>
                 <DialogActions>

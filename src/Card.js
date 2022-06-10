@@ -10,17 +10,21 @@ export default function CardComp(props) {
     return (
         <Card sx={{ minWidth: 275 }}>
             <CardContent>
-                <Typography variant="h5" component="div">
+                <Typography variant="h5" component="div" style={{
+                    display:'flex',
+                    justifyContent:'space-between'
+                }}>
                     {name}
+                    <button onClick={props.deleteHandler} className={'btn btn-danger'}>X</button>
                 </Typography>
                 <Typography sx={{ mb: 1.5 }} color="text.secondary">
                     {area}
                 </Typography>
                 <Typography variant="body2">
                     Category : {category}
-                    <br/>
+                    <br />
                     Opening : {startDate[0]} {months[startDate[1] - 1]} {startDate[2]}
-                    <br/>
+                    <br />
                     Closing : {finishDate[0]} {months[finishDate[1] - 1]} {finishDate[2]}
                 </Typography>
             </CardContent>

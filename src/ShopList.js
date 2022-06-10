@@ -1,17 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Shop from './Shop';
-function ShopList(props) {
-    const { shops } = props;
+import { ShopsContext } from './ShopsContext';
+
+function ShopList() {
+    const shops = useContext(ShopsContext);
     return (
-        <div>
+        <>
             {shops.map(shop => (
                 <Shop
                     key={shop.id}
-                    shop={shop}
-                    deleteShop={props.deleteShop}
+                    id={shop.id}
                 />
             ))}
-        </div>
+        </>
     )
 }
 export default ShopList;
