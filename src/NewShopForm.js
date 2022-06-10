@@ -38,19 +38,14 @@ function NewShopForm(props) {
             setNameError(true);
             setNameErrorMessage('Only alpabets are required!');
         }
-        else {
-            setNameError(false);
-        }
+        else setNameError(false);
     }, [name]);
-
     useEffect(() => {
         area === '' ? setAreaError(true) : setAreaError(false);
     }, [area]);
-
     useEffect(() => {
         category === '' ? setCategoryError(true) : setCategoryError(false);
     }, [category])
-
     useEffect(() => {
         (startDate > finishDate) ? setDateError(true) : setDateError(false);
     }, [startDate, finishDate])
@@ -79,6 +74,7 @@ function NewShopForm(props) {
     }
     const changeHandler = (e) => { setName(e.target.value); }
 
+    //rendering..
     return (
         <div>
             <div onClick={handleClickOpen} style={{ cursor: 'pointer' }}>

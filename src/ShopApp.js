@@ -5,7 +5,6 @@ import useStyles from './Styles/ShopAppStyles'
 import { ShopsProvider } from './ShopsContext';
 
 const ShopApp = () => {
-
     const [open, setOpen] = useState(false);
     const classes = useStyles();
     return (
@@ -22,4 +21,3 @@ const ShopApp = () => {
     )
 }
 export default ShopApp;
-    // const filters = ['None', 'Area', 'Category', 'Open', 'Closed'];
