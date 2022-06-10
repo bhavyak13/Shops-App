@@ -112,7 +112,15 @@ function NewShopForm(props) {
                     <div className={classes.dropdown}>
                         <label htmlFor='close'>Closing Date : </label>
                         <DateChooser validator={true} date={finishDate} setDate={setFinishDate} id='close' />
-                        <div hidden={!dateError}>Closing Date can't be before opening date</div>
+                        <div hidden={!dateError}
+                            style={{
+                                color: 'red',
+                                marginLeft:'0.3rem',
+                                marginTop:'0.2rem',
+                                fontSize:'13px'
+
+                            }}
+                        >Closing Date should be later than opening date!</div>
                     </div>
                 </DialogContent>
                 <DialogActions>
