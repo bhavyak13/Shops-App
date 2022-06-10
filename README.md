@@ -1,47 +1,20 @@
-You have to complete and submit the assignment on : 10th June 22.
+# Shop-App
 
-Assignment :
 Shop List
-Create a Shop list app in React with Redux where?
+<img src="https://github.com/bhavyak13/Shops-App/blob/master/images/ShopList.png"/>
 
-• You can add a shop with its name, the area of the shop, the category
-of the shop, the opening and closing date of the shop
-• You can see the list of all the shops
-• You can filter the list of shops based on
-     ○ Area
-     ○ Category
-     ○ The open/close status(this should be decided by getting today's
-date and seeing if it's lying between the opening and closing date of
-the shop)
+New Shop From
+<img src="https://github.com/bhavyak13/Shops-App/blob/master/images/NewShopForm.png"/>
 
-Areas -
-Thane
-Pune
-Mumbai Suburban
-Nashik
-Nagpur
-Ahmednagar
-Solapur
-... add if required
+Valiadtions
+<img src="https://github.com/bhavyak13/Shops-App/blob/master/images/restrictions.png"/>
 
-Shops Category -
-Grocery
-Butcher
-Baker
-Chemist
-Stationery shop
-... add if required
+Specific Validation : 
+Only alphabets Allowed validation
+<img src="https://github.com/bhavyak13/Shops-App/blob/master/images/restriction2.png"/>
 
-• All inputs should have validations
-     ○ Shop Name: only alphabets, required
-     ○ Area: dropdown, required
-     ○ Category: dropdown, required
-     ○ Opening Date: date, required
-     ○ Closing Date: date, required, should not be before Opening Date
-• Delete Shop From List
-• Edit Shop Data using Modal (optional task)
-• App Should be Responsive
-
-Submit Instruction:
-Code needs to be saved on the Github repository, screenshots and zip
-files need to be sent via email.
+# Run locally
+To run the project on your computer:
+1. Download code 
+2. Open cmd and run command <b>npm install </b> in the same directory you have extracted code from zip file.
+3. Now run command <b>npm start</b>
