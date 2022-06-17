@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Shops-App/static/css/main.1ba70230.css",
+    "main.js": "/Shops-App/static/js/main.a1b57f24.js",
+    "static/js/787.cd657b0f.chunk.js": "/Shops-App/static/js/787.cd657b0f.chunk.js",
+    "static/media/sun-tornado.svg": "/Shops-App/static/media/sun-tornado.c883c01cf89a759fceda8c85126b2955.svg",
+    "index.html": "/Shops-App/index.html",
+    "main.1ba70230.css.map": "/Shops-App/static/css/main.1ba70230.css.map",
+    "main.a1b57f24.js.map": "/Shops-App/static/js/main.a1b57f24.js.map",
+    "787.cd657b0f.chunk.js.map": "/Shops-App/static/js/787.cd657b0f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1ba70230.css",
+    "static/js/main.a1b57f24.js"
+  ]
+}
